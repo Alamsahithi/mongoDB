@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
    User.findById(1)
     .then(user => {
-      req.user = new User(user.name,user.email,user.cart,user._id);
+      req.user = user;
      next();
     })
     .catch(err => console.log(err));
@@ -33,8 +33,20 @@ app.use('/admin', adminRoutes);
 
 app.use(errorController.get404);
 
-mongoose.connect('mongodb+srv://sahithialam:J5EOwJR8AF2LOKMr@cluster0.fvxqa6t.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://sahithialam:@cluster0.fvxqa6t.mongodb.net/?retryWrites=true&w=majority')
 .then(result=>{
+User.findOne().then(user=>{
+if(!user){
+  const user=new User({
+    name:'sahi',
+    email:'abc@getMaxListeners.com',
+    cart:{
+      items:[]
+    }
+  })
+  user.save()
+  }
+  })
   app.listen(3000)
 })
 .catch(err=>{
