@@ -33,7 +33,7 @@ app.use('/admin', adminRoutes);
 
 app.use(errorController.get404);
 
-mongoose.connect('mongodb+srv://sahithialam:J5EOwJR8AF2LOKMr@cluster0.fvxqa6t.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://sahithialam@cluster0.fvxqa6t.mongodb.net/?retryWrites=true&w=majority')
 .then(result=>{
   app.listen(3000)
 })
