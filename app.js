@@ -33,7 +33,11 @@ app.use('/admin', adminRoutes);
 
 app.use(errorController.get404);
 
+<<<<<<< HEAD
 mongoose.connect('mongodb+srv://sahithialam:@cluster0.fvxqa6t.mongodb.net/?retryWrites=true&w=majority')
+=======
+mongoose.connect('mongodb+srv://sahithialam@cluster0.fvxqa6t.mongodb.net/?retryWrites=true&w=majority')
+>>>>>>> 2e6b21b1eb67c6ce69cc9fbdecdb8d89f2c2fc54
 .then(result=>{
 User.findOne().then(user=>{
 if(!user){
